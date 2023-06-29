@@ -58,6 +58,7 @@ public class TransactionControllerTest {
 
         verify(transactionService).getAll(eq(0), eq(100));
     }
+    
     @Test
     void testGetById() throws Exception{
         UUID transactionId = UUID.randomUUID();
