@@ -59,7 +59,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByIdWithInvalidId() {
+    void testGetByIdWithInvalidId() throws Exception{
         UUID id = UUID.randomUUID();
 
         when(transactionRepository.findById(id)).thenReturn(Optional.empty());
@@ -70,7 +70,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountFrom() {
+    void testGetByAccountFrom() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -85,7 +85,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountTo() {
+    void testGetByAccountTo() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -100,7 +100,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetSumOfAmountsByAccountAndDate() {
+    void testGetSumOfAmountsByAccountAndDate() throws Exception{
         String accountIBAN = "123456789";
         LocalDateTime date = LocalDateTime.now();
         Double expectedSum = 500.0;
@@ -113,7 +113,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountFromAndAmountLessThan() {
+    void testGetByAccountFromAndAmountLessThan() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -130,7 +130,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountFromAndAmountEquals() {
+    void testGetByAccountFromAndAmountEquals() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -147,7 +147,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountFromAndAmountGreaterThan() {
+    void testGetByAccountFromAndAmountGreaterThan() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -164,7 +164,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountFromAndTimeStampBetween() {
+    void testGetByAccountFromAndTimeStampBetween() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -182,7 +182,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountToAndAmountLessThan() {
+    void testGetByAccountToAndAmountLessThan() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -199,7 +199,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountToAndAmountEquals() {
+    void testGetByAccountToAndAmountEquals() throws Exception{
 
         BankAccount account = new BankAccount();
 
@@ -217,7 +217,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountToAndAmountGreaterThan() {
+    void testGetByAccountToAndAmountGreaterThan() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -234,7 +234,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testGetByAccountToAndTimeStampBetween() {
+    void testGetByAccountToAndTimeStampBetween() throws Exception{
         BankAccount account = new BankAccount();
 
         List<Transaction> transactions = new ArrayList<>();
@@ -252,7 +252,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testCreate() {
+    void testCreate() throws Exception{
         // create sample transaction DTO
         TransactionDTO transactionDTO = new TransactionDTO();
         transactionDTO.setIbanAccountFrom("accountFromIBAN");
@@ -292,7 +292,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testExceedsDayLimit() {
+    void testExceedsDayLimit() throws Exception{
         User user = new User();
         user.setTransactionLimit(100.0);
         user.setDayLimit(100.00);
@@ -311,7 +311,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testUpdate() {
+    void testUpdate() throws Exception{
         UUID uuid = UUID.randomUUID();
         Transaction transaction = new Transaction();
         transaction.setUuid(uuid);
@@ -325,7 +325,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    void testDelete() {
+    void testDelete() throws Exception{
         UUID transactionId = UUID.randomUUID();
 
         doNothing().when(transactionRepository).deleteById(transactionId);

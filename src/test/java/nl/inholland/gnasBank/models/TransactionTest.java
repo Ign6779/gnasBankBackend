@@ -18,12 +18,12 @@ public class TransactionTest {
     }
 
     @Test
-    void newTransactionShouldNotBeNull(){
+    void newTransactionShouldNotBeNull() throws Exception{
         Assertions.assertNotNull(transaction);
     }
 
     @Test
-    void transactionDateShouldBeNow(){
+    void transactionDateShouldBeNow() throws Exception{
         LocalDateTime now = LocalDateTime.now();
         transaction.setTimeStamp(now);
 
